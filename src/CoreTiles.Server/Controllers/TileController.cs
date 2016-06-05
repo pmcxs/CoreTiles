@@ -26,7 +26,7 @@ namespace CoreTiles.Server
             {
                 //image.Clear(new Color(0.0f, 0.0f, 0.0f, 0.2f));
 
-                image.DrawRectangle(0, 0, 256, 256, Color.Red, 1);
+                image.DrawRectangle(0, 0, 256, 256, Color.Red);
 
                 image
                     .SaveAsPng(outputStream);
