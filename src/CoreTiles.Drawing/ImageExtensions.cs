@@ -64,14 +64,20 @@ namespace CoreTiles.Drawing
         public static void DrawLine(this Image image, int x1, int y1, int x2, int y2, Color color, int thickness)
         {
             Vector2 unitVector = Vector2.Normalize(new Vector2(x2 - x1, y2 - y1));
-            Vector2 normalVector = new Vector2(-unitVector.Y, unitVector.X);
+            
+            Vector2 normalVectorTop = new Vector2(-unitVector.Y, unitVector.X);
+            Vector2 normalVectorBottom = new Vector2(unitVector.Y, -unitVector.X);
 
             for (int i = 0; i < thickness; i++)
             {
-                Point p1 = new Point(x1 + (int)(normalVector.X * i), y1 + (int)(normalVector.Y * i));
-                Point p2 = new Point(x2 + (int)(normalVector.X * i), y2 + (int)(normalVector.Y * i));
+                Vector2 normalVector = i % 2 == 0 ? normalVectorTop : normalVectorBottom;
+                
+                int offset = (int) Math.Ceiling(i / 2.0);
+                
+                Point p1 = new Point(x1 + (int) (normalVector.X * offset), y1 + (int) (normalVector.Y * offset));
+                Point p2 = new Point(x2 + (int) (normalVector.X * offset), y2 + (int) (normalVector.Y * offset));
                 image.DrawLine(p1.X, p1.Y, p2.X, p2.Y, color);
-            }
+            }            
         }
 
 
