@@ -6,6 +6,8 @@ using ImageProcessorCore;
 using CoreTiles.Drawing;
 
 using Microsoft.AspNetCore.Mvc;
+using System.Numerics;
+using ImageProcessorCore.Filters;
 
 namespace CoreTiles.Server
 {
@@ -22,16 +24,13 @@ namespace CoreTiles.Server
             using (Image image = new Image(TileSize, TileSize))
             using (var outputStream = new MemoryStream())
             {
+                //image.Clear(new Color(0.0f, 0.0f, 0.0f, 0.2f));
 
-                image.Clear(new Color(0.0f, 0.0f, 0.0f, 0.2f));
+                image.DrawRectangle(0, 0, 256, 256, Color.Red, 1);
 
-                image.DrawLine(0, 0, 0, 255, Color.Red);
-                image.DrawLine(0, 255, 255, 255, Color.Red);
-                image.DrawLine(255, 0, 255, 255, Color.Red);
-                image.DrawLine(0, 0, 255, 0, Color.Red);
+                image
+                    .SaveAsPng(outputStream);
 
-
-                image.SaveAsPng(outputStream);
                 var bytes = outputStream.ToArray();
 
                 Response.ContentType = "image/png";
