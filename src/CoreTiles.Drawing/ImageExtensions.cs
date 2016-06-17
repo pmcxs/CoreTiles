@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Numerics;
 using ImageProcessorCore;
 
 namespace CoreTiles.Drawing
@@ -15,6 +14,8 @@ namespace CoreTiles.Drawing
         /// <param name="color"></param>
         public static void SetPixel(this Image image, int x, int y, Color color)
         {
+            if (x < 0 || y < 0 || x >= image.Width || y >= image.Height) return;
+            
             image[x, y] = color;
         }
 
@@ -39,165 +40,56 @@ namespace CoreTiles.Drawing
             }
         }
 
-        public static void DrawRectangle(this Image image, int x, int y, int width, int height, Color color, int thickness = 1)
+        /// <summary>
+        /// Draw a rectangle with its top-left corner at coordinate x,y
+        /// </summary>
+        /// <param name="image"></param>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        /// <param name="color"></param>
+        /// <param name="thickness"></param>
+        public static void DrawRectangle(this Image image, int x, int y, int width, int height, Color color, int thickness = 1, int resamplingFactor = 1)
         {
-            image.DrawLine(x, y, width - 1, y, color, thickness);
+            x *= resamplingFactor;
+            y *= resamplingFactor;
+            width *= resamplingFactor;
+            height *= resamplingFactor;
 
-            image.DrawLine(width - 1, y, width - 1, height - 1, color, thickness);
-
-            image.DrawLine(width - 1, height - 1, x, height - 1, color, thickness);
-
-            image.DrawLine(x, height - 1, x, y, color, thickness);
-        }
-        
-        
-        public static void DrawLineAlt(this Image image, int x1, int y1, int x2, int y2, Color color, int thickness = 1)
-        {
-            int w = x2 - x1;
-            int h = y2 - y1;
+            int rightExtraThickness = (int)Math.Ceiling((thickness - 1) / 2.0);
+            int leftExtraThickess = (int)Math.Floor((thickness - 1) / 2.0);
             
-            Vector2 unitVector = Vector2.Normalize(new Vector2(w, h));
-            Vector2 normalVectorTop = new Vector2(-unitVector.Y, unitVector.X);
-            Vector2 normalVectorBottom = new Vector2(unitVector.Y, -unitVector.X);
-            
-            int dx1 = 0, dy1 = 0, dx2 = 0, dy2 = 0;
-            if (w < 0) dx1 = -1; else if (w > 0) dx1 = 1;
-            if (h < 0) dy1 = -1; else if (h > 0) dy1 = 1;
-            if (w < 0) dx2 = -1; else if (w > 0) dx2 = 1;
-            int longest = Math.Abs(w);
-            int shortest = Math.Abs(h);
-            if (!(longest > shortest))
-            {
-                longest = Math.Abs(h);
-                shortest = Math.Abs(w);
-                if (h < 0) dy2 = -1; else if (h > 0) dy2 = 1;
-                dx2 = 0;
-            }
-            int numerator = longest >> 1;
-            for (int i = 0; i <= longest; i++)
-            {
-                for (int j = 0; j < thickness; j++)
-                {
-                    Vector2 normalVector = j % 2 == 0 ? normalVectorTop : normalVectorBottom;
-                    
-                    int offset = (int) Math.Ceiling(j / 2.0);
-                    image.SetPixel(x1 + (int) (normalVector.X * offset), y1 + (int) (normalVector.Y * offset), color);
-                }   
+            //Draw horizontal lines
 
-                numerator += shortest;
-                if (!(numerator < longest))
+            
+            for (var i = x; i < x + width; i++)
+            {
+
+                for(var z= y - leftExtraThickess; z <= y + rightExtraThickness; z++)
                 {
-                    numerator -= longest;
-                    x1 += dx1;
-                    y1 += dy1;
+                    image.SetPixel(i, z, color);
                 }
-                else
-                {
-                    x1 += dx2;
-                    y1 += dy2;
-                }
-            }
-        }
-        
-        
-        public static void DrawLineAlt2(this Image image, int x1, int y1, int x2, int y2, Color color, int thickness = 1)
-        {
-            int w = x2 - x1;
-            int h = y2 - y1;
-            
-            Vector2 unitVector = Vector2.Normalize(new Vector2(w, h));
-            Vector2 normalVectorTop = new Vector2(-unitVector.Y, unitVector.X);
-            Vector2 normalVectorBottom = new Vector2(unitVector.Y, -unitVector.X);
-            
-            int dx1 = 0, dy1 = 0, dx2 = 0, dy2 = 0;
-            if (w < 0) dx1 = -1; else if (w > 0) dx1 = 1;
-            if (h < 0) dy1 = -1; else if (h > 0) dy1 = 1;
-            if (w < 0) dx2 = -1; else if (w > 0) dx2 = 1;
-            int longest = Math.Abs(w);
-            int shortest = Math.Abs(h);
-            if (!(longest > shortest))
-            {
-                longest = Math.Abs(h);
-                shortest = Math.Abs(w);
-                if (h < 0) dy2 = -1; else if (h > 0) dy2 = 1;
-                dx2 = 0;
-            }
-            int numerator = longest >> 1;
-            for (int i = 0; i <= longest; i++)
-            {
-                for (int j = 0; j < thickness; j++)
-                {
-                    double offsetSource = j / 2.0;
-                    
-                    Vector2 normalVector = offsetSource % 1 == 0 ? normalVectorTop : normalVectorBottom;
-                    
-                    int offset = (int) Math.Ceiling(offsetSource);
-                    image.SetPixel(x1 + (int) (normalVector.X * offset), y1 + (int) (normalVector.Y * offset), color);
-                }   
-
-                numerator += shortest;
-                if (!(numerator < longest))
-                {
-                    numerator -= longest;
-                    x1 += dx1;
-                    y1 += dy1;
-                }
-                else
-                {
-                    x1 += dx2;
-                    y1 += dy2;
-                }
-            }
-        }
-        
-        public static void DrawLineAlt3(this Image image, int x1, int y1, int x2, int y2, Color color, int thickness = 1)
-        {
-            int w = x2 - x1;
-            int h = y2 - y1;
-            
-            Vector2 unitVector = Vector2.Normalize(new Vector2(w, h));
-            Vector2 normalVectorTop = new Vector2(-unitVector.Y, unitVector.X);
-            Vector2 normalVectorBottom = new Vector2(unitVector.Y, -unitVector.X);
-            
-            int dx1 = 0, dy1 = 0, dx2 = 0, dy2 = 0;
-            if (w < 0) dx1 = -1; else if (w > 0) dx1 = 1;
-            if (h < 0) dy1 = -1; else if (h > 0) dy1 = 1;
-            if (w < 0) dx2 = -1; else if (w > 0) dx2 = 1;
-            int longest = Math.Abs(w);
-            int shortest = Math.Abs(h);
-            if (!(longest > shortest))
-            {
-                longest = Math.Abs(h);
-                shortest = Math.Abs(w);
-                if (h < 0) dy2 = -1; else if (h > 0) dy2 = 1;
-                dx2 = 0;
-            }
-            int numerator = longest >> 1;
-            
-            for (int j = 0; j < thickness; j++)
-            {   
-                Vector2 normalVector = j % 2 == 0 ? normalVectorTop : normalVectorBottom;
-                int offset = (int) Math.Ceiling(j / 2.0);
                 
-                int xOffset = (int) (normalVector.X * offset);
-                int yOffset = (int) (normalVector.Y * offset);
-                
-                for (int i = 0; i <= longest; i++)
+                for (var z = y + height - 1 - leftExtraThickess; z <= y + height - 1 + rightExtraThickness; z++)
                 {
-                    image.SetPixel(x1 + xOffset, y1 + yOffset, color);
-                    
-                    numerator += shortest;
-                    if (!(numerator < longest))
-                    {
-                        numerator -= longest;
-                        x1 += dx1;
-                        y1 += dy1;
-                    }
-                    else
-                    {
-                        x1 += dx2;
-                        y1 += dy2;
-                    }
+                    image.SetPixel(i, z, color);
+                }
+
+            }
+
+            //Draw vertical lines
+            for(var j=y+1; j < y + height; j++)
+            {
+
+                for(var z=x-leftExtraThickess; z <= x + leftExtraThickess; z++)
+                {
+                    image.SetPixel(z, j, color);
+                }
+
+                for (var z = x + width - 1 - leftExtraThickess; z <= x + width - 1 + rightExtraThickness; z++)
+                {
+                    image.SetPixel(z, j, color);
                 }
             }
         }
@@ -212,72 +104,16 @@ namespace CoreTiles.Drawing
         /// <param name="y2"></param>
         /// <param name="color"></param>
         /// <param name="thickness"></param>
-        public static void DrawLine(this Image image, int x1, int y1, int x2, int y2, Color color, int thickness)
+        public static void DrawLine(this Image image, int x1, int y1, int x2, int y2, Color color, int thickness = 1, int resamplingFactor = 1)
         {
-            Vector2 unitVector = Vector2.Normalize(new Vector2(x2 - x1, y2 - y1));
-            
-            Vector2 normalVectorTop = new Vector2(-unitVector.Y, unitVector.X);
-            Vector2 normalVectorBottom = new Vector2(unitVector.Y, -unitVector.X);
+            x1 *= resamplingFactor;
+            y1 *= resamplingFactor;
+            x2 *= resamplingFactor;
+            y2 *= resamplingFactor;
+            thickness *= resamplingFactor;
 
-            for (int i = 0; i < thickness; i++)
-            {
-                Vector2 normalVector = i % 2 == 0 ? normalVectorTop : normalVectorBottom;
-                
-                int offset = (int) Math.Ceiling(i / 2.0);
-                
-                Point p1 = new Point(x1 + (int) (normalVector.X * offset), y1 + (int) (normalVector.Y * offset));
-                Point p2 = new Point(x2 + (int) (normalVector.X * offset), y2 + (int) (normalVector.Y * offset));
-                image.DrawLine(p1.X, p1.Y, p2.X, p2.Y, color);
-            }            
+            BresenhamLineAlgorithm.DrawLine(image, x1, y1, x2, y2, color, thickness);
         }
-
-
-
-        /// <summary>
-        /// Draws a line between two points using Bresenham's algorithm with a thickness of 1 pixel
-        /// </summary>
-        /// <remarks>Algorithm from http://tech-algorithm.com/articles/drawing-line-using-bresenham-algorithm/</remarks>
-        /// <param name="image"></param>
-        /// <param name="x1"></param>
-        /// <param name="y1"></param>
-        /// <param name="x2"></param>
-        /// <param name="y2"></param>
-        /// <param name="color"></param>
-        public static void DrawLine(this Image image, int x1, int y1, int x2, int y2, Color color)
-        {
-            int w = x2 - x1;
-            int h = y2 - y1;
-            int dx1 = 0, dy1 = 0, dx2 = 0, dy2 = 0;
-            if (w < 0) dx1 = -1; else if (w > 0) dx1 = 1;
-            if (h < 0) dy1 = -1; else if (h > 0) dy1 = 1;
-            if (w < 0) dx2 = -1; else if (w > 0) dx2 = 1;
-            int longest = Math.Abs(w);
-            int shortest = Math.Abs(h);
-            if (!(longest > shortest))
-            {
-                longest = Math.Abs(h);
-                shortest = Math.Abs(w);
-                if (h < 0) dy2 = -1; else if (h > 0) dy2 = 1;
-                dx2 = 0;
-            }
-            int numerator = longest >> 1;
-            for (int i = 0; i <= longest; i++)
-            {
-                image.SetPixel(x1, y1, color);
-
-                numerator += shortest;
-                if (!(numerator < longest))
-                {
-                    numerator -= longest;
-                    x1 += dx1;
-                    y1 += dy1;
-                }
-                else
-                {
-                    x1 += dx2;
-                    y1 += dy2;
-                }
-            }
-        }
+        
     }
 }

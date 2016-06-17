@@ -6,13 +6,12 @@ using ImageProcessorCore;
 using CoreTiles.Drawing;
 
 using Microsoft.AspNetCore.Mvc;
-using System.Numerics;
-using ImageProcessorCore.Filters;
 using System.Diagnostics;
+using ImageProcessorCore.Samplers;
 
 namespace CoreTiles.Server
 {
-    
+
     [Route("[controller]")]
     public class TileController : Controller
     {
@@ -22,73 +21,36 @@ namespace CoreTiles.Server
         [HttpGet("{z}/{x}/{y}")]
         public async Task<IActionResult> Get(int z, int x, int y)
         {
-            
             Stopwatch watch = new Stopwatch();
-            
-            using (Image image = new Image(TileSize, TileSize))
+
+            int resampling = 1;
+            int lineWidth = 5;
+
+            using (Image lineImage = new Image(TileSize * resampling, TileSize * resampling))
             using (var outputStream = new MemoryStream())
             {
-                //image.Clear(new Color(0.0f, 0.0f, 0.0f, 0.2f));
-                
-                watch.Start();
+                lineImage.Clear(new Color(0.0f, 0.0f, 0.0f, 0.2f));
 
-                for(var i =0; i < 10000; i++) 
-                {
-                    image.DrawLine(20,20,200,200, Color.Red, 2);
-                }
-
-                watch.Stop();
+                lineImage.DrawRectangle(0, 0, 255, 255, Color.Red, lineWidth, resampling);
                 
-                Console.WriteLine("A Elapsed Time: " + watch.Elapsed);
-                
-                
-                watch.Reset();
-                watch.Start();
+                lineImage.DrawLine(0, 0, 255, 255, Color.Red, lineWidth, resampling);
+                lineImage.DrawLine(0, 255, 255, 0, Color.Red, lineWidth, resampling);
+                lineImage.DrawLine(0, 63, 255, 191, Color.Red, lineWidth, resampling);
+                lineImage.DrawLine(0, 191, 255, 63, Color.Red, lineWidth, resampling);
+                lineImage.DrawLine(0, 127, 255, 127, Color.Red, lineWidth, resampling);
+                lineImage.DrawLine(127, 0, 127, 255, Color.Red, lineWidth, resampling);
+                lineImage.DrawLine(63, 0, 191, 255, Color.Red, lineWidth, resampling);
+                lineImage.DrawLine(191, 0, 63, 255, Color.Red, lineWidth, resampling);
 
-                for(var i =0; i < 10000; i++) 
-                {
-                    image.DrawLineAlt(20,20,200,200, Color.Red, 2);
-                }
 
-                watch.Stop();
-                
-                Console.WriteLine("B Elapsed Time: " + watch.Elapsed);
-                
-                
-                watch.Reset();
-                watch.Start();
-
-                for(var i =0; i < 10000; i++) 
-                {
-                    image.DrawLineAlt2(20,20,200,200, Color.Red, 2);
-                }
-
-                watch.Stop();
-                
-                Console.WriteLine("C Elapsed Time: " + watch.Elapsed);
-                
-                watch.Reset();
-                watch.Start();
-
-                for(var i =0; i < 10000; i++) 
-                {
-                    image.DrawLineAlt3(20,20,200,200, Color.Red, 2);
-                }
-
-                watch.Stop();
-                
-                Console.WriteLine("D Elapsed Time: " + watch.Elapsed);
-
-                //image.DrawRectangle(0, 0, 256, 256, Color.Red);
-
-                image
+                lineImage
+                    //.Resize(TileSize,TileSize)
                     .SaveAsPng(outputStream);
 
                 var bytes = outputStream.ToArray();
-
+                
                 Response.ContentType = "image/png";
                 await Response.Body.WriteAsync(bytes, 0, bytes.Length);
-
                 return Ok();
             }
         }
