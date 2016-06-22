@@ -114,6 +114,16 @@ namespace CoreTiles.Drawing
 
             BresenhamLineAlgorithm.DrawLine(image, x1, y1, x2, y2, color, thickness);
         }
+
         
+        public static Color Blend(this Color color, Color backColor, double amount)
+        {
+            byte a = (byte)((color.A * amount) + backColor.A * (1 - amount));
+            byte r = (byte)((color.R * amount) + backColor.R * (1 - amount));
+            byte g = (byte)((color.G * amount) + backColor.G * (1 - amount));
+            byte b = (byte)((color.B * amount) + backColor.B * (1 - amount));
+            return new Color(r,g,b,a);
+        }
+
     }
 }
