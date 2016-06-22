@@ -62,7 +62,6 @@ namespace CoreTiles.Drawing
             
             //Draw horizontal lines
 
-            
             for (var i = x; i < x + width; i++)
             {
 

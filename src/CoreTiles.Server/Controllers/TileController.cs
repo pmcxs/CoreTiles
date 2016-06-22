@@ -1,15 +1,12 @@
-﻿using System;
+﻿using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
-using ImageProcessorCore;
-
 using CoreTiles.Drawing;
-
-using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
+using ImageProcessorCore;
 using ImageProcessorCore.Samplers;
+using Microsoft.AspNetCore.Mvc;
 
-namespace CoreTiles.Server
+namespace CoreTiles.Server.Controllers
 {
 
     [Route("[controller]")]
@@ -23,7 +20,7 @@ namespace CoreTiles.Server
         {
             Stopwatch watch = new Stopwatch();
 
-            int resampling = 1;
+            int resampling = 2;
             int lineWidth = 5;
 
             using (Image lineImage = new Image(TileSize * resampling, TileSize * resampling))
@@ -44,7 +41,7 @@ namespace CoreTiles.Server
 
 
                 lineImage
-                    //.Resize(TileSize,TileSize)
+                    .Resize(TileSize,TileSize)
                     .SaveAsPng(outputStream);
 
                 var bytes = outputStream.ToArray();
