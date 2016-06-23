@@ -1,15 +1,12 @@
-﻿using System;
+﻿using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
-using ImageProcessorCore;
-
 using CoreTiles.Drawing;
-
-using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
+using ImageProcessorCore;
 using ImageProcessorCore.Samplers;
+using Microsoft.AspNetCore.Mvc;
 
-namespace CoreTiles.Server
+namespace CoreTiles.Server.Controllers
 {
 
     [Route("[controller]")]
@@ -25,16 +22,13 @@ namespace CoreTiles.Server
 
             int resampling = 2;
             int lineWidth = 5;
-            
+
+            using (Image lineImage = new Image(TileSize * resampling, TileSize * resampling))
             using (var outputStream = new MemoryStream())
             {
-                Image lineImage = new Image(TileSize * resampling, TileSize * resampling);
+                lineImage.Clear(new Color(0.0f, 0.0f, 0.0f, 0.2f));
 
-                //lineImage.Clear(new Color(0.0f, 0.0f, 0.0f, 0.2f));
-
-                //lineImage.DrawRectangle(0, 0, 255, 255, Color.Red, lineWidth, resampling);
-
-                watch.Start();
+                lineImage.DrawRectangle(0, 0, 255, 255, Color.Red, lineWidth, resampling);
                 
                 lineImage.DrawLine(0, 0, 255, 255, Color.Red, lineWidth, resampling);
                 lineImage.DrawLine(0, 255, 255, 0, Color.Red, lineWidth, resampling);
@@ -45,28 +39,12 @@ namespace CoreTiles.Server
                 lineImage.DrawLine(63, 0, 191, 255, Color.Red, lineWidth, resampling);
                 lineImage.DrawLine(191, 0, 63, 255, Color.Red, lineWidth, resampling);
 
-                watch.Stop();
 
-                Console.WriteLine($"Drawing logic: {watch.Elapsed.TotalMilliseconds} ms");
-
-                watch.Restart();
-                
-                if (resampling > 1)
-                {
-                    lineImage = lineImage.Resize(TileSize, TileSize);
-                }
-
-                watch.Stop();
-
-                Console.WriteLine($"Resampling logic: {watch.Elapsed.TotalMilliseconds} ms");
-                
                 lineImage
+                    .Resize(TileSize,TileSize)
                     .SaveAsPng(outputStream);
 
                 var bytes = outputStream.ToArray();
-
-                
-                lineImage.Dispose();
                 
                 Response.ContentType = "image/png";
                 await Response.Body.WriteAsync(bytes, 0, bytes.Length);
