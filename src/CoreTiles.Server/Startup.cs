@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using CoreTiles.Drawing;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CoreTiles.Server
@@ -10,6 +11,8 @@ namespace CoreTiles.Server
         {
             // Add framework services.
             services.AddMvc();
+
+            services.AddSingleton<ILineDrawing, LineDrawing>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

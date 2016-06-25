@@ -5,6 +5,24 @@ namespace CoreTiles.Drawing
 {
     public static class ImageExtensions
     {
+
+
+        public static Color BlendColor(Color bg, Color fg)
+        {
+            // The result
+            var r = new Color();
+
+            r.A = 1 - (1 - fg.A) * (1 - bg.A);
+            if (r.A < 1.0e-6) return r; // Fully transparent -- R,G,B not important
+            r.R = fg.R * fg.A / r.A + bg.R * bg.A * (1 - fg.A) / r.A;
+            r.G = fg.G * fg.A / r.A + bg.G * bg.A * (1 - fg.A) / r.A;
+            r.B = fg.B * fg.A / r.A + bg.B * bg.A * (1 - fg.A) / r.A;
+
+
+
+            return r;
+        }
+
         /// <summary>
         /// Sets a pixel(x,y) inside an image with a specified color
         /// </summary>
@@ -15,8 +33,15 @@ namespace CoreTiles.Drawing
         public static void SetPixel(this Image image, int x, int y, Color color)
         {
             if (x < 0 || y < 0 || x >= image.Width || y >= image.Height) return;
+
+            Color blendedColor = BlendColor(image[x, y], color);
             
-            image[x, y] = color;
+            image[x, y] = blendedColor;
+        }
+        
+        public static void SetPixel(this Image image, double x, double y, Color color)
+        {
+            image.SetPixel((int)x, (int)y, color);
         }
 
         public static Color GetPixel(this Image image, int x, int y)
@@ -74,7 +99,6 @@ namespace CoreTiles.Drawing
                 {
                     image.SetPixel(i, z, color);
                 }
-
             }
 
             //Draw vertical lines
@@ -92,28 +116,6 @@ namespace CoreTiles.Drawing
                 }
             }
         }
-        
-        /// <summary>
-        /// Draws a line between two points using Bresenham's algorithm with the supplied thickness in pixels
-        /// </summary>
-        /// <param name="image"></param>
-        /// <param name="x1"></param>
-        /// <param name="y1"></param>
-        /// <param name="x2"></param>
-        /// <param name="y2"></param>
-        /// <param name="color"></param>
-        /// <param name="thickness"></param>
-        public static void DrawLine(this Image image, int x1, int y1, int x2, int y2, Color color, int thickness = 1, int resamplingFactor = 1)
-        {
-            x1 *= resamplingFactor;
-            y1 *= resamplingFactor;
-            x2 *= resamplingFactor;
-            y2 *= resamplingFactor;
-            thickness *= resamplingFactor;
-
-            BresenhamLineAlgorithm.DrawLine(image, x1, y1, x2, y2, color, thickness);
-        }
-
         
         public static Color Blend(this Color color, Color backColor, double amount)
         {
