@@ -34,9 +34,13 @@ namespace CoreTiles.Drawing
         {
             if (x < 0 || y < 0 || x >= image.Width || y >= image.Height) return;
 
-            Color blendedColor = BlendColor(image[x, y], color);
+            using (PixelAccessor imagePixels = image.Lock())
+            {
+                Color blendedColor = BlendColor(imagePixels[x, y], color);
             
-            image[x, y] = blendedColor;
+                imagePixels[x, y] = blendedColor;
+            }
+
         }
         
         public static void SetPixel(this Image image, double x, double y, Color color)
@@ -46,7 +50,10 @@ namespace CoreTiles.Drawing
 
         public static Color GetPixel(this Image image, int x, int y)
         {
-            return image[x, y];
+            using (PixelAccessor imagePixels = image.Lock())
+            {
+                return imagePixels[x,y];
+            }
         }
 
         /// <summary>

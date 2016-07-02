@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a7a3e850-a31c-462d-9fd6-c27ab7c2a580" name="Default" comment="" />
+    <list default="true" id="a7a3e850-a31c-462d-9fd6-c27ab7c2a580" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/CoreTiles.Drawing/ImageExtensions.cs" afterPath="$PROJECT_DIR$/../src/CoreTiles.Drawing/ImageExtensions.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/CoreTiles.Drawing/project.json" afterPath="$PROJECT_DIR$/../src/CoreTiles.Drawing/project.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/CoreTiles.Hexagon/HexagonDefinition.cs" afterPath="$PROJECT_DIR$/../src/CoreTiles.Hexagon/HexagonDefinition.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/CoreTiles.Hexagon/project.json" afterPath="$PROJECT_DIR$/../src/CoreTiles.Hexagon/project.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/CoreTiles.Server/Controllers/TileController.cs" afterPath="$PROJECT_DIR$/../src/CoreTiles.Server/Controllers/TileController.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/CoreTiles.Server/project.json" afterPath="$PROJECT_DIR$/../src/CoreTiles.Server/project.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../test/CoreTiles.Drawing.Test/project.json" afterPath="$PROJECT_DIR$/../test/CoreTiles.Drawing.Test/project.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../test/CoreTiles.Hexagon.Test/project.json" afterPath="$PROJECT_DIR$/../test/CoreTiles.Hexagon.Test/project.json" />
+    </list>
     <ignored path="CoreTiles.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,24 +29,39 @@
     <favorites_list name="CoreTiles" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="Program.cs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../src/CoreTiles.Server/Program.cs">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="project.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../src/CoreTiles.Server/project.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <marker date="1465115073000" expanded="true" signature="6:88" ph="..." />
-                <marker date="1465115073000" expanded="true" signature="116:453" ph="{...}" />
-                <marker date="1465115073000" expanded="true" signature="143:451" ph="{...}" />
-                <marker date="1465115073000" expanded="true" signature="196:445" ph="{...}" />
-              </folding>
+            <state relative-caret-position="527">
+              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="project.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../src/CoreTiles.Server/project.json">
+        <entry file="file://$PROJECT_DIR$/../test/CoreTiles.Drawing.Test/project.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="project.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../test/CoreTiles.Hexagon.Test/project.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="project.lock.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../src/CoreTiles.Hexagon/project.lock.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -45,54 +70,78 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TileController.cs" pinned="false" current-in-tab="false">
+      <file leaf-file-name="project.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../src/CoreTiles.Hexagon/project.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TileController.cs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../src/CoreTiles.Server/Controllers/TileController.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+            <state relative-caret-position="102">
+              <caret line="28" column="60" selection-start-line="28" selection-start-column="60" selection-end-line="28" selection-end-column="60" />
               <folding>
-                <marker date="1466634279000" expanded="true" signature="6:190" ph="..." />
-                <marker date="1466634279000" expanded="true" signature="230:2029" ph="{...}" />
-                <marker date="1466634279000" expanded="true" signature="306:2027" ph="{...}" />
-                <marker date="1466634279000" expanded="true" signature="483:2012" ph="{...}" />
+                <marker date="1467419947000" expanded="true" signature="6:155" ph="..." />
+                <marker date="1467419947000" expanded="true" signature="195:1864" ph="{...}" />
+                <marker date="1467419947000" expanded="true" signature="271:1862" ph="{...}" />
+                <marker date="1467419947000" expanded="true" signature="429:489" ph="{...}" />
+                <marker date="1467419947000" expanded="true" signature="618:1847" ph="{...}" />
+                <marker date="1467419947000" expanded="true" signature="1553:1847" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HomeController.cs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../src/CoreTiles.Server/Controllers/HomeController.cs">
+      <file leaf-file-name="project.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../src/CoreTiles.Drawing/project.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LineDrawing.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../src/CoreTiles.Drawing/LineDrawing.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HexagonDefinition.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../src/CoreTiles.Hexagon/HexagonDefinition.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
               <folding>
-                <marker date="1466623894000" expanded="true" signature="6:45" ph="..." />
-                <marker date="1466623894000" expanded="true" signature="85:239" ph="{...}" />
-                <marker date="1466623894000" expanded="true" signature="132:237" ph="{...}" />
-                <marker date="1466623894000" expanded="true" signature="175:222" ph="{...}" />
+                <marker date="1466897757000" expanded="true" signature="42:683" ph="{...}" />
+                <marker date="1466897757000" expanded="true" signature="79:681" ph="{...}" />
+                <marker date="1466897757000" expanded="true" signature="135:490" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ImageExtensions.cs" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../src/CoreTiles.Drawing/ImageExtensions.cs">
+      <file leaf-file-name="HexagonUtil.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../src/CoreTiles.Hexagon/HexagonUtil.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <state relative-caret-position="136">
+              <caret line="8" column="53" selection-start-line="8" selection-start-column="53" selection-end-line="8" selection-end-column="53" />
               <folding>
-                <marker date="1466634305000" expanded="true" signature="6:39" ph="..." />
-                <marker date="1466634305000" expanded="true" signature="68:3999" ph="{...}" />
-                <marker date="1466634305000" expanded="true" signature="110:3997" ph="{...}" />
-                <marker date="1466634305000" expanded="true" signature="125:386" ph="/// ..." />
-                <marker date="1466634305000" expanded="true" signature="467:614" ph="{...}" />
-                <marker date="1466634305000" expanded="true" signature="684:736" ph="{...}" />
-                <marker date="1466634305000" expanded="true" signature="746:930" ph="/// ..." />
-                <marker date="1466634305000" expanded="true" signature="994:1232" ph="{...}" />
-                <marker date="1466634305000" expanded="true" signature="1242:1634" ph="/// ..." />
-                <marker date="1466634305000" expanded="true" signature="1788:3101" ph="{...}" />
-                <marker date="1466634305000" expanded="true" signature="3119:3544" ph="/// ..." />
-                <marker date="1466634305000" expanded="true" signature="3688:3982" ph="{...}" />
+                <marker date="1465115073000" expanded="true" signature="6:69" ph="..." />
+                <marker date="1465115073000" expanded="true" signature="98:1259" ph="{...}" />
+                <marker date="1465115073000" expanded="true" signature="129:1257" ph="{...}" />
+                <marker date="1465115073000" expanded="true" signature="230:1086" ph="{...}" />
+                <marker date="1465115073000" expanded="true" signature="1159:1250" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -100,26 +149,36 @@
       </file>
     </leaf>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../src/CoreTiles.Server/Controllers/TileController.cs" />
         <option value="$PROJECT_DIR$/../src/CoreTiles.Drawing/ImageExtensions.cs" />
+        <option value="$PROJECT_DIR$/../src/CoreTiles.Hexagon/HexagonDefinition.cs" />
+        <option value="$PROJECT_DIR$/../test/CoreTiles.Drawing.Test/project.json" />
+        <option value="$PROJECT_DIR$/../test/CoreTiles.Hexagon.Test/project.json" />
+        <option value="$PROJECT_DIR$/../src/CoreTiles.Hexagon/project.json" />
+        <option value="$PROJECT_DIR$/../src/CoreTiles.Drawing/project.json" />
+        <option value="$PROJECT_DIR$/../src/CoreTiles.Server/project.json" />
+        <option value="$PROJECT_DIR$/../src/CoreTiles.Server/Controllers/TileController.cs" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
     <option name="width" value="1680" />
-    <option name="height" value="1050" />
+    <option name="height" value="960" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
     <OptionsSetting value="true" id="Update" />
     <OptionsSetting value="true" id="Status" />
     <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="1" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
@@ -180,6 +239,50 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CoreTiles.Server" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controllers" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CoreTiles" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CoreTiles.Hexagon" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CoreTiles" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CoreTiles.Drawing" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
         <option name="show-file-system" value="false" />
@@ -188,10 +291,19 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../CoreTiles.sln" />
-    <property name="SearchEverywhereHistoryKey" value="Image&#9;null&#9;null" />
-    <property name="FullScreen" value="true" />
+    <property name="SearchEverywhereHistoryKey" value="tile&#9;FILE&#9;file:///Users/pedrosousa/Projects/github/CoreTiles/src/CoreTiles.Server/Controllers/TileController.cs&#10;Image&#9;null&#9;null" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C#" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
-  <component name="RunManager" selected=".NET Project.Default">
+  <component name="RunManager" selected=".NET Project.src\CoreTiles.Server">
+    <configuration default="false" name="src\CoreTiles.Server" type="DotNetProject" factoryName=".NET Project" temporary="true">
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/../src/CoreTiles.Server/CoreTiles.Server.xproj" />
+      <option name="PROJECT_KIND" value="DotNetCore" />
+      <option name="EXE_PATH" value="/usr/local/share/dotnet/dotnet" />
+      <option name="PROGRAM_PARAMETERS" value="run" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../src/CoreTiles.Server" />
+      <method />
+    </configuration>
     <configuration default="true" type="DotNetProject" factoryName=".NET Project">
       <option name="PROJECT_PATH" value="" />
       <option name="PROJECT_KIND" value="None" />
@@ -208,9 +320,15 @@
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../src/CoreTiles.Server" />
       <method />
     </configuration>
-    <list size="1">
+    <list size="2">
       <item index="0" class="java.lang.String" itemvalue=".NET Project.Default" />
+      <item index="1" class="java.lang.String" itemvalue=".NET Project.src\CoreTiles.Server" />
     </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue=".NET Project.src\CoreTiles.Server" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -238,27 +356,27 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
+    <frame x="0" y="23" width="1680" height="960" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20833333" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19285715" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Errors in solution" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27916253" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="UnitTesting" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Errors in solution" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27833894" sideWeight="0.50238097" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27833894" sideWeight="0.49761903" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="UnitTesting" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="NuGet" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="NuGet" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -278,16 +396,185 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/../src/CoreTiles.Server/project.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../test/CoreTiles.Drawing.Test/project.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../test/CoreTiles.Hexagon.Test/project.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/CoreTiles.Hexagon/project.lock.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/CoreTiles.Hexagon/project.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/CoreTiles.Server/Controllers/TileController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="9" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
+          <folding>
+            <marker date="1467419947000" expanded="true" signature="6:155" ph="..." />
+            <marker date="1467419947000" expanded="true" signature="195:1864" ph="{...}" />
+            <marker date="1467419947000" expanded="true" signature="271:1862" ph="{...}" />
+            <marker date="1467419947000" expanded="true" signature="429:489" ph="{...}" />
+            <marker date="1467419947000" expanded="true" signature="618:1847" ph="{...}" />
+            <marker date="1467419947000" expanded="true" signature="1553:1847" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/CoreTiles.Drawing/project.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/CoreTiles.Drawing/LineDrawing.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/CoreTiles.Hexagon/HexagonDefinition.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+          <folding>
+            <marker date="1466897757000" expanded="true" signature="42:683" ph="{...}" />
+            <marker date="1466897757000" expanded="true" signature="79:681" ph="{...}" />
+            <marker date="1466897757000" expanded="true" signature="135:490" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/CoreTiles.Hexagon/HexagonUtil.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="53" selection-start-line="8" selection-start-column="53" selection-end-line="8" selection-end-column="53" />
+          <folding>
+            <marker date="1465115073000" expanded="true" signature="6:69" ph="..." />
+            <marker date="1465115073000" expanded="true" signature="98:1259" ph="{...}" />
+            <marker date="1465115073000" expanded="true" signature="129:1257" ph="{...}" />
+            <marker date="1465115073000" expanded="true" signature="230:1086" ph="{...}" />
+            <marker date="1465115073000" expanded="true" signature="1159:1250" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../src/CoreTiles.Server/Program.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/CoreTiles.Server/project.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/CoreTiles.Server/Controllers/TileController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1465115073000" expanded="true" signature="6:88" ph="..." />
-            <marker date="1465115073000" expanded="true" signature="116:453" ph="{...}" />
-            <marker date="1465115073000" expanded="true" signature="143:451" ph="{...}" />
-            <marker date="1465115073000" expanded="true" signature="196:445" ph="{...}" />
+            <marker date="1467419947000" expanded="true" signature="6:155" ph="..." />
+            <marker date="1467419947000" expanded="true" signature="195:1864" ph="{...}" />
+            <marker date="1467419947000" expanded="true" signature="271:1862" ph="{...}" />
+            <marker date="1467419947000" expanded="true" signature="429:489" ph="{...}" />
+            <marker date="1467419947000" expanded="true" signature="618:1847" ph="{...}" />
+            <marker date="1467419947000" expanded="true" signature="1553:1847" ph="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/CoreTiles.Drawing/LineDrawing.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/CoreTiles.Hexagon/HexagonDefinition.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+          <folding>
+            <marker date="1466897757000" expanded="true" signature="42:683" ph="{...}" />
+            <marker date="1466897757000" expanded="true" signature="79:681" ph="{...}" />
+            <marker date="1466897757000" expanded="true" signature="135:490" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/CoreTiles.Hexagon/HexagonUtil.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="53" selection-start-line="8" selection-start-column="53" selection-end-line="8" selection-end-column="53" />
+          <folding>
+            <marker date="1465115073000" expanded="true" signature="6:69" ph="..." />
+            <marker date="1465115073000" expanded="true" signature="98:1259" ph="{...}" />
+            <marker date="1465115073000" expanded="true" signature="129:1257" ph="{...}" />
+            <marker date="1465115073000" expanded="true" signature="230:1086" ph="{...}" />
+            <marker date="1465115073000" expanded="true" signature="1159:1250" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/CoreTiles.Server/Controllers/HomeController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/CoreTiles.Drawing/ImageExtensions.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/CoreTiles.Server/Program.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -304,10 +591,12 @@
         <state relative-caret-position="119">
           <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding>
-            <marker date="1466634279000" expanded="true" signature="6:190" ph="..." />
-            <marker date="1466634279000" expanded="true" signature="230:2029" ph="{...}" />
-            <marker date="1466634279000" expanded="true" signature="306:2027" ph="{...}" />
-            <marker date="1466634279000" expanded="true" signature="483:2012" ph="{...}" />
+            <marker date="1467419947000" expanded="true" signature="6:155" ph="..." />
+            <marker date="1467419947000" expanded="true" signature="195:1864" ph="{...}" />
+            <marker date="1467419947000" expanded="true" signature="271:1862" ph="{...}" />
+            <marker date="1467419947000" expanded="true" signature="429:489" ph="{...}" />
+            <marker date="1467419947000" expanded="true" signature="618:1847" ph="{...}" />
+            <marker date="1467419947000" expanded="true" signature="1553:1847" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -316,32 +605,130 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1466623894000" expanded="true" signature="6:45" ph="..." />
-            <marker date="1466623894000" expanded="true" signature="85:239" ph="{...}" />
-            <marker date="1466623894000" expanded="true" signature="132:237" ph="{...}" />
-            <marker date="1466623894000" expanded="true" signature="175:222" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../src/CoreTiles.Drawing/ImageExtensions.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/CoreTiles.Server/Program.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/CoreTiles.Server/Controllers/HomeController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/CoreTiles.Drawing/ImageExtensions.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/CoreTiles.Drawing/LineDrawing.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/CoreTiles.Hexagon/HexagonUtil.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="53" selection-start-line="8" selection-start-column="53" selection-end-line="8" selection-end-column="53" />
           <folding>
-            <marker date="1466634305000" expanded="true" signature="6:39" ph="..." />
-            <marker date="1466634305000" expanded="true" signature="68:3999" ph="{...}" />
-            <marker date="1466634305000" expanded="true" signature="110:3997" ph="{...}" />
-            <marker date="1466634305000" expanded="true" signature="125:386" ph="/// ..." />
-            <marker date="1466634305000" expanded="true" signature="467:614" ph="{...}" />
-            <marker date="1466634305000" expanded="true" signature="684:736" ph="{...}" />
-            <marker date="1466634305000" expanded="true" signature="746:930" ph="/// ..." />
-            <marker date="1466634305000" expanded="true" signature="994:1232" ph="{...}" />
-            <marker date="1466634305000" expanded="true" signature="1242:1634" ph="/// ..." />
-            <marker date="1466634305000" expanded="true" signature="1788:3101" ph="{...}" />
-            <marker date="1466634305000" expanded="true" signature="3119:3544" ph="/// ..." />
-            <marker date="1466634305000" expanded="true" signature="3688:3982" ph="{...}" />
+            <marker date="1465115073000" expanded="true" signature="6:69" ph="..." />
+            <marker date="1465115073000" expanded="true" signature="98:1259" ph="{...}" />
+            <marker date="1465115073000" expanded="true" signature="129:1257" ph="{...}" />
+            <marker date="1465115073000" expanded="true" signature="230:1086" ph="{...}" />
+            <marker date="1465115073000" expanded="true" signature="1159:1250" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/CoreTiles.Hexagon/HexagonDefinition.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+          <folding>
+            <marker date="1466897757000" expanded="true" signature="42:683" ph="{...}" />
+            <marker date="1466897757000" expanded="true" signature="79:681" ph="{...}" />
+            <marker date="1466897757000" expanded="true" signature="135:490" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../test/CoreTiles.Drawing.Test/project.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../test/CoreTiles.Hexagon.Test/project.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/CoreTiles.Hexagon/project.lock.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/CoreTiles.Hexagon/project.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/CoreTiles.Drawing/project.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/CoreTiles.Server/project.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/CoreTiles.Server/Controllers/TileController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="28" column="60" selection-start-line="28" selection-start-column="60" selection-end-line="28" selection-end-column="60" />
+          <folding>
+            <marker date="1467419947000" expanded="true" signature="6:155" ph="..." />
+            <marker date="1467419947000" expanded="true" signature="195:1864" ph="{...}" />
+            <marker date="1467419947000" expanded="true" signature="271:1862" ph="{...}" />
+            <marker date="1467419947000" expanded="true" signature="429:489" ph="{...}" />
+            <marker date="1467419947000" expanded="true" signature="618:1847" ph="{...}" />
+            <marker date="1467419947000" expanded="true" signature="1553:1847" ph="{...}" />
           </folding>
         </state>
       </provider>
