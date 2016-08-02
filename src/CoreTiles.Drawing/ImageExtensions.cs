@@ -5,24 +5,24 @@ namespace CoreTiles.Drawing
 {
     public static class ImageExtensions
     {
-
-
         public static Color BlendColor(Color bg, Color fg)
         {
-            // The result
-            var r = new Color();
+            
+            float A = 1 - (1 - fg.A / 255f) * (1 - bg.A / 255f);
+                
+            if (A < 1.0e-6)
+            {
+                return new Color(0, 0, 0, A);
+            }
+                
+            float R = (fg.R / 255f) * (fg.A / 255f) / A + (bg.R / 255f) * (bg.A / 255f) * (1 - (fg.A / 255f)) / A;
+            float G = (fg.G / 255f) * (fg.A / 255f) / A + (bg.G / 255f) * (bg.A / 255f) * (1 - (fg.A / 255f)) / A;
+            float B = (fg.B / 255f) * (fg.A / 255f) / A + (bg.B / 255f) * (bg.A / 255f) * (1 - (fg.A / 255f)) / A;
 
-            r.A = 1 - (1 - fg.A) * (1 - bg.A);
-            if (r.A < 1.0e-6) return r; // Fully transparent -- R,G,B not important
-            r.R = fg.R * fg.A / r.A + bg.R * bg.A * (1 - fg.A) / r.A;
-            r.G = fg.G * fg.A / r.A + bg.G * bg.A * (1 - fg.A) / r.A;
-            r.B = fg.B * fg.A / r.A + bg.B * bg.A * (1 - fg.A) / r.A;
-
-
-
-            return r;
+            return new Color(R, G, B, A);
+            
         }
-
+        
         /// <summary>
         /// Sets a pixel(x,y) inside an image with a specified color
         /// </summary>
@@ -30,29 +30,28 @@ namespace CoreTiles.Drawing
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <param name="color"></param>
-        public static void SetPixel(this Image image, int x, int y, Color color)
+        public static void SetPixel(this Image<Color, uint> image, int x, int y, Color color)
         {
             if (x < 0 || y < 0 || x >= image.Width || y >= image.Height) return;
-
-            using (PixelAccessor imagePixels = image.Lock())
+            
+            using (IPixelAccessor<Color,uint> imagePixels = image.Lock())
             {
                 Color blendedColor = BlendColor(imagePixels[x, y], color);
-            
                 imagePixels[x, y] = blendedColor;
             }
-
+           
         }
         
-        public static void SetPixel(this Image image, double x, double y, Color color)
+        public static void SetPixel(this Image<Color,uint> image, double x, double y, Color color)
         {
             image.SetPixel((int)x, (int)y, color);
         }
 
         public static Color GetPixel(this Image image, int x, int y)
         {
-            using (PixelAccessor imagePixels = image.Lock())
+            using (ColorPixelAccessor imagePixels = new ColorPixelAccessor(image))
             {
-                return imagePixels[x,y];
+                return imagePixels[x, y];
             }
         }
 

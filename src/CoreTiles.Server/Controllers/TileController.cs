@@ -1,9 +1,13 @@
-﻿using System.Diagnostics;
+﻿using System;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using CoreTiles.Drawing;
+using CoreTiles.Hexagon;
 using ImageProcessorCore;
 using Microsoft.AspNetCore.Mvc;
+
+using Point = System.Drawing.Point;
 
 namespace CoreTiles.Server.Controllers
 {
@@ -28,19 +32,47 @@ namespace CoreTiles.Server.Controllers
             {
                 var lineImage = new Image(TileSize, TileSize);
 
-                 _lineDrawing.DrawLine(lineImage, 0, 0, 255, 255, Color.Red, 2);
-                                _lineDrawing.DrawLine(lineImage, 0, 255, 255, 0, Color.Red, 2);
-                                _lineDrawing.DrawLine(lineImage, 0, 63, 255, 191, Color.Red, 2);
-                                _lineDrawing.DrawLine(lineImage, 0, 191, 255, 63, Color.Red, 2);
-                                _lineDrawing.DrawLine(lineImage, 0, 127, 255, 127, Color.Red, 2);
-                                _lineDrawing.DrawLine(lineImage, 127, 0, 127, 255, Color.Red, 2);
-                                _lineDrawing.DrawLine(lineImage, 63, 0, 191, 255, Color.Red, 2);
-                                _lineDrawing.DrawLine(lineImage, 191, 0, 63, 255, Color.Red, 2);
+                if (z >= 5)
+                {
+                    var hexSize = 500;
+                    
+                    
+                    var size = (int)(hexSize / Math.Pow(2, 10 - z));
 
+                    var hexagonDefinition = new HexagonDefinition(size);
+
+                    //Tile offset
+                    var pixelX = x * TileSize;
+                    var pixelY = y * TileSize;
+
+                    var topLeft = new Point(pixelX - size, pixelY - size);
+
+                    var bottomRight = new Point(pixelX + TileSize + size, pixelY + TileSize + size);
+
+                    foreach (var hexagon in HexagonUtil.GetHexagonsInsideBoudingBox(topLeft, bottomRight, size))
+                    {
+                        var center = HexagonUtil.GetCenterPixelOfHexagonCoordinate(hexagon, size);
+
+                        var hexagonPoints = HexagonUtil
+                                            .GetHexagonPixels(size, new Point(center.X - pixelX, center.Y - pixelY))
+                                            .ToList();
+
+                        for (var i = 0; i < hexagonPoints.Count - 1; i++)
+                        {
+                            _lineDrawing.DrawLine(
+                                lineImage, 
+                                hexagonPoints[i].X, 
+                                hexagonPoints[i].Y, 
+                                hexagonPoints[i + 1].X, 
+                                hexagonPoints[i + 1].Y, 
+                                new Color(150, 150, 200, 255), 4);
+                        }
+                    }
+
+                }
 
                 lineImage
                     .SaveAsPng(outputStream);
-
 
                 var bytes = outputStream.ToArray();
                 
@@ -49,6 +81,10 @@ namespace CoreTiles.Server.Controllers
                 return Ok();
             }
         }
-        
+
+
+
+
+
     }
 }

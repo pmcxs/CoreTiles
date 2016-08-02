@@ -38,7 +38,16 @@ namespace CoreTiles.Drawing
             int numerator = longest >> 1;
             for (int i = 0; i <= longest; i++)
             {
-                image.SetPixel(x1, y1, color);
+                try
+                {
+                    image.SetPixel(x1, y1, color);
+                }
+                catch (Exception e)
+                {
+
+                    throw;
+                }
+                
 
                 numerator += shortest;
                 if (!(numerator < longest))

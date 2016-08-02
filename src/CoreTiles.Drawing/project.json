@@ -3,12 +3,13 @@
   "buildOptions": {
     "debugType": "portable"
   },
-  "dependencies": {},
+  "dependencies": {
+    "ImageProcessorCore": "1.0.0-alpha-966"
+  },
   "frameworks": {
     "netstandard1.6": {
       "dependencies": {
-        "NETStandard.Library": "1.6.0",
-        "ImageProcessorCore": "1.0.0-*"
+        "NETStandard.Library": "1.6.0"
       }
     }
   }

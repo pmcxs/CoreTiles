@@ -59,13 +59,13 @@ namespace CoreTiles.Drawing
 
             if (steep)
             {
-                g.SetPixel(ypxl1, xpxl1, new Color(color.ToVector3(), Convert.ToSingle(rfpart(yend) * xgap)));
-                g.SetPixel(ypxl1 + 1, xpxl1, new Color(color.ToVector3(), Convert.ToSingle(fpart(yend) * xgap)));
+                g.SetPixel(ypxl1, xpxl1, new Color(color.R, color.G, color.B, Convert.ToSingle(rfpart(yend) * xgap)));
+                g.SetPixel(ypxl1 + 1, xpxl1, new Color(color.R, color.G, color.B, Convert.ToSingle(fpart(yend) * xgap)));
             }
             else
             {
-                g.SetPixel(xpxl1, ypxl1, new Color(color.ToVector3(), Convert.ToSingle(rfpart(yend) * xgap)));
-                g.SetPixel(xpxl1, ypxl1 + 1, new Color(color.ToVector3(), Convert.ToSingle(fpart(yend) * xgap)));
+                g.SetPixel(xpxl1, ypxl1, new Color(color.R, color.G, color.B, Convert.ToSingle(rfpart(yend) * xgap)));
+                g.SetPixel(xpxl1, ypxl1 + 1, new Color(color.R, color.G, color.B, Convert.ToSingle(fpart(yend) * xgap)));
             }
 
             // first y-intersection for the main loop
@@ -80,21 +80,21 @@ namespace CoreTiles.Drawing
 
             if (steep)
             {
-                g.SetPixel(ypxl2, xpxl2, new Color(color.ToVector3(), Convert.ToSingle(rfpart(yend) * xgap)));
-                g.SetPixel(ypxl2 + 1, xpxl2, new Color(color.ToVector3(), Convert.ToSingle(fpart(yend) * xgap)));
+                g.SetPixel(ypxl2, xpxl2, new Color(color.R, color.G, color.B, Convert.ToSingle(rfpart(yend) * xgap)));
+                g.SetPixel(ypxl2 + 1, xpxl2, new Color(color.R, color.G, color.B, Convert.ToSingle(fpart(yend) * xgap)));
             }
             else
             {
-                g.SetPixel(xpxl2, ypxl2, new Color(color.ToVector3(), Convert.ToSingle(rfpart(yend) * xgap)));
-                g.SetPixel(xpxl2, ypxl2 + 1, new Color(color.ToVector3(), Convert.ToSingle(fpart(yend) * xgap)));
+                g.SetPixel(xpxl2, ypxl2, new Color(color.R, color.G, color.B, Convert.ToSingle(rfpart(yend) * xgap)));
+                g.SetPixel(xpxl2, ypxl2 + 1, new Color(color.R, color.G, color.B, Convert.ToSingle(fpart(yend) * xgap)));
             }
 
             if (steep)
             {
                 for (double x = xpxl1 + 1; x <= xpxl2 - 1; x++)
                 {
-                    g.SetPixel(ipart(intery), x, new Color(color.ToVector3(), Convert.ToSingle(rfpart(intery))));
-                    g.SetPixel(ipart(intery) + 1, x, new Color(color.ToVector3(), Convert.ToSingle(fpart(intery))));
+                    g.SetPixel(ipart(intery), x, new Color(color.R, color.G, color.B, Convert.ToSingle(rfpart(intery))));
+                    g.SetPixel(ipart(intery) + 1, x, new Color(color.R, color.G, color.B, Convert.ToSingle(fpart(intery))));
                     intery = intery + gradient;
                 }
             }
@@ -102,8 +102,8 @@ namespace CoreTiles.Drawing
             {
                 for (double x = xpxl1 + 1; x <= xpxl2 - 1; x++)
                 {
-                    g.SetPixel(x, ipart(intery), new Color(color.ToVector3(), Convert.ToSingle(rfpart(intery))));
-                    g.SetPixel(x, ipart(intery) + 1, new Color(color.ToVector3(), Convert.ToSingle(fpart(intery))));
+                    g.SetPixel(x, ipart(intery), new Color(color.R, color.G, color.B, Convert.ToSingle(rfpart(intery))));
+                    g.SetPixel(x, ipart(intery) + 1, new Color(color.R, color.G, color.B, Convert.ToSingle(fpart(intery))));
                     intery = intery + gradient;
                 }
 
