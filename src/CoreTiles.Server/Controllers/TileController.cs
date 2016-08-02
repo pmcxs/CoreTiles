@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -51,21 +52,21 @@ namespace CoreTiles.Server.Controllers
 
                     foreach (var hexagon in HexagonUtil.GetHexagonsInsideBoudingBox(topLeft, bottomRight, size))
                     {
-                        var center = HexagonUtil.GetCenterPixelOfHexagonCoordinate(hexagon, size);
+                        PointF center = HexagonUtil.GetCenterPixelOfHexagonCoordinate(hexagon, size);
 
                         var hexagonPoints = HexagonUtil
-                                            .GetHexagonPixels(size, new Point(center.X - pixelX, center.Y - pixelY))
+                                            .GetHexagonPixels(size, new PointF(center.X - pixelX, center.Y - pixelY))
                                             .ToList();
 
                         for (var i = 0; i < hexagonPoints.Count - 1; i++)
                         {
                             _lineDrawing.DrawLine(
                                 lineImage, 
-                                hexagonPoints[i].X, 
-                                hexagonPoints[i].Y, 
-                                hexagonPoints[i + 1].X, 
-                                hexagonPoints[i + 1].Y, 
-                                new Color(150, 150, 200, 255), 4);
+                                (int) Math.Round(hexagonPoints[i].X), 
+                                (int) Math.Round(hexagonPoints[i].Y), 
+                                (int) Math.Round(hexagonPoints[i + 1].X), 
+                                (int) Math.Round(hexagonPoints[i + 1].Y),
+                                new Color(150, 150, 150, 255), 5);
                         }
                     }
 

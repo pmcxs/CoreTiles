@@ -44,7 +44,7 @@ namespace CoreTiles.Drawing
         
         public static void SetPixel(this Image<Color,uint> image, double x, double y, Color color)
         {
-            image.SetPixel((int)x, (int)y, color);
+            image.SetPixel((int)Math.Round(x), (int) Math.Round(y), color);
         }
 
         public static Color GetPixel(this Image image, int x, int y)

@@ -6,15 +6,14 @@ namespace CoreTiles.Hexagon
 {
     public class HexagonUtil
     {
-        public static IEnumerable<Point> GetHexagonPixels(int edgeSize, Point center)
+        public static IEnumerable<PointF> GetHexagonPixels(int edgeSize, PointF center)
         {
             for (var i = 0; i < 6; i++)
             {
-                double angle_deg = 60 * i;
-                double angle_rad = Math.PI / 180.0 * angle_deg;
-                yield return new Point(
-                    Convert.ToInt32(center.X + edgeSize * Math.Cos(angle_rad)),
-                    Convert.ToInt32(center.Y + edgeSize * Math.Sin(angle_rad)));
+                float angle_deg = 60f * i;
+                float angle_rad = (float) Math.PI / 180f * angle_deg;
+                yield return new PointF(center.X + edgeSize * (float) Math.Cos(angle_rad),
+                                        center.Y + edgeSize * (float) Math.Sin(angle_rad));
             }
         }
 
@@ -24,16 +23,16 @@ namespace CoreTiles.Hexagon
         /// <param name="coordinate"></param>
         /// <param name="hexagonDefinition"></param>
         /// <returns></returns>
-        public static Point GetCenterPixelOfHexagonCoordinate(HexagonCoordinate coordinate, int edgeSize)
+        public static PointF GetCenterPixelOfHexagonCoordinate(HexagonCoordinate coordinate, int edgeSize)
         {
-            int x = Convert.ToInt32(edgeSize * 3.0 / 2.0 * coordinate.U);
-            int y = Convert.ToInt32(edgeSize * Math.Sqrt(3.0) * (coordinate.V + coordinate.U / 2.0));
-            return new Point(x, y);
+            float x = edgeSize * 3f / 2f * coordinate.U;
+            float y = edgeSize * (float) Math.Sqrt(3.0) * (coordinate.V + coordinate.U / 2f);
+            return new PointF(x, y);
         }
 
         public static HexagonCoordinate GetHexagonCoordinateOfPixel(Point point, int edgeSize)
         {
-            double u = point.X * 2.0 / 3.0 / (double)edgeSize;
+            double u = point.X * 2.0 / 3.0 / edgeSize;
             double v = (-point.X / 3.0 + Math.Sqrt(3.0) / 3.0 * point.Y) / edgeSize;
             return new HexagonCoordinate(u, v);
         }
@@ -51,7 +50,7 @@ namespace CoreTiles.Hexagon
 
             var topLeftUVCenter = GetCenterPixelOfHexagonCoordinate(topLeftUV, edgeSize);
 
-            int minX2 = Convert.ToInt32(topLeftUVCenter.X + (edgeSize * 1.5));
+            int minX2 = (int) Math.Round(topLeftUVCenter.X + (edgeSize * 1.5));
 
             var topLeftUV2 = GetHexagonCoordinateOfPixel(new Point(minX2, topLeftCorner.Y), edgeSize);
             var bottomLeftUV2 = GetHexagonCoordinateOfPixel(new Point(minX2, bottomRightCorner.Y), edgeSize);
