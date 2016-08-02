@@ -6,9 +6,7 @@ It presents a simple OpenStreetMap map with an hexagon overlay.
 The most interesting part of this repo is that it includes a cross-platform drawing logic 
 (particularly as `System.Drawing`doesn't include any drawing methods). I've implemented:
 - squares
-- lines
--- with thickness
--- with antialiasing
+- lines (with variable thickness and antialiasing)
 
 Please see my blog post at http://build-failed.blogspot.com for some technical details.
 
@@ -28,4 +26,4 @@ Then just open the browser at: `http://localhost:5000`. You should see something
 
 ### Next steps
 
-Well, most likely none. This was mostly an experiment, although I might reuse some bits and pieces from this.
+Well, probably none. This was mostly an experiment, although I might reuse some bits and pieces from this in the future.
