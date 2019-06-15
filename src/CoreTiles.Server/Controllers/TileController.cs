@@ -1,14 +1,17 @@
 ﻿using System;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using CoreTiles.Drawing;
 using CoreTiles.Hexagon;
-using ImageProcessorCore;
 using Microsoft.AspNetCore.Mvc;
-
-using Point = System.Drawing.Point;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.PixelFormats;
+using CoreTiles.Drawing;
+using System.Collections.Generic;
+using SixLabors.Primitives;
+using SixLabors.ImageSharp.Formats.Jpeg;
+using SixLabors.ImageSharp.Formats.Png;
+using SixLabors.ImageSharp.Processing;
 
 namespace CoreTiles.Server.Controllers
 {
@@ -18,73 +21,65 @@ namespace CoreTiles.Server.Controllers
     {
         private const int TileSize = 256;
 
-        private readonly ILineDrawing _lineDrawing;
-
-        public TileController(ILineDrawing lineDrawing)
+        public TileController()
         {
-            _lineDrawing = lineDrawing;
         }
 
         // GET api/tile/0011
         [HttpGet("{z}/{x}/{y}")]
-        public async Task<IActionResult> Get(int z, int x, int y)
+        public IActionResult Get(int z, int x, int y)
         {
-            using (var outputStream = new MemoryStream())
-            {
-                var lineImage = new Image(TileSize, TileSize);
 
-                if (z >= 5)
+            using (var destinationImage = new Image<Rgba32>(TileSize, TileSize))
+            {
+                if (z >= 7)
                 {
                     var hexSize = 500;
-                    
-                    
+
+
                     var size = (int)(hexSize / Math.Pow(2, 10 - z));
 
-                    var hexagonDefinition = new HexagonDefinition(size);
+                    var hexagonDefinition = new HexagonDefinition(size, 10);
 
                     //Tile offset
                     var pixelX = x * TileSize;
                     var pixelY = y * TileSize;
 
-                    var topLeft = new Point(pixelX - size, pixelY - size);
+                    var topLeft = new PointXY(pixelX - size, pixelY - size);
+                    var bottomRight = new PointXY(pixelX + TileSize + size, pixelY + TileSize + size);
 
-                    var bottomRight = new Point(pixelX + TileSize + size, pixelY + TileSize + size);
-
-                    foreach (var hexagon in HexagonUtil.GetHexagonsInsideBoudingBox(topLeft, bottomRight, size))
+                    foreach (HexagonLocationUV hexagon in HexagonUtils.GetHexagonsInsideBoundingBox(topLeft, bottomRight, hexagonDefinition))
                     {
-                        PointF center = HexagonUtil.GetCenterPixelOfHexagonCoordinate(hexagon, size);
+                        PointXY center = HexagonUtils.GetCenterPointXYOfHexagonLocationUV(hexagon, hexagonDefinition);
 
-                        var hexagonPoints = HexagonUtil
-                                            .GetHexagonPixels(size, new PointF(center.X - pixelX, center.Y - pixelY))
-                                            .ToList();
+                        IList<PointXY> hexagonPoints = HexagonUtils
+                            .GetHexagonPixels(size, new PointXY(center.X - pixelX, center.Y - pixelY)).ToList();
 
-                        for (var i = 0; i < hexagonPoints.Count - 1; i++)
-                        {
-                            _lineDrawing.DrawLine(
-                                lineImage, 
-                                (int) Math.Round(hexagonPoints[i].X), 
-                                (int) Math.Round(hexagonPoints[i].Y), 
-                                (int) Math.Round(hexagonPoints[i + 1].X), 
-                                (int) Math.Round(hexagonPoints[i + 1].Y),
-                                new Color(150, 150, 150, 255), 5);
-                        }
+                        PointF[] points = hexagonPoints.Select(p => new PointF((float)p.X, (float)p.Y)).ToArray();
+
+                        destinationImage.Mutate(ctx => ctx
+
+                           .DrawLines(
+                               new Rgba32(200, 200, 200, 200),
+                               5,
+                               points)
+                           .DrawLines(
+                               new Rgba32(100, 100, 100, 200),
+                               2,
+                               points));
+
                     }
-
                 }
 
-                lineImage
-                    .SaveAsPng(outputStream);
+                Stream outputStream = new MemoryStream();
 
-                var bytes = outputStream.ToArray();
-                
-                Response.ContentType = "image/png";
-                await Response.Body.WriteAsync(bytes, 0, bytes.Length);
-                return Ok();
+                destinationImage.Save(outputStream, new PngEncoder());
+                outputStream.Seek(0, SeekOrigin.Begin);
+                return this.File(outputStream, "image/png");
+
             }
+            
         }
-
-
-
 
 
     }

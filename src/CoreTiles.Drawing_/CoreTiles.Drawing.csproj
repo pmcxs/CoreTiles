@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.6</TargetFramework>
+    <DebugType>portable</DebugType>
+    <AssemblyName>CoreTiles.Drawing</AssemblyName>
+    <PackageId>CoreTiles.Drawing</PackageId>
+    <NetStandardImplicitPackageVersion>1.6.0</NetStandardImplicitPackageVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ImageProcessorCore" Version="1.0.0-alpha-966" />
+  </ItemGroup>
+
+</Project>
