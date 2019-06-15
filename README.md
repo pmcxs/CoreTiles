@@ -3,19 +3,20 @@
 This is a simple proof-of-concept to show a working cross-platform map tile-server written in .Net Core.
 It presents a simple OpenStreetMap map with an hexagon overlay.
 
-The most interesting part of this repo is that it includes a cross-platform drawing logic 
-(particularly as `System.Drawing`doesn't include any drawing methods). I've implemented:
-- squares
-- lines (with variable thickness and antialiasing)
 
-Please see my blog post at http://build-failed.blogspot.com for some technical details.
+Initially, as there wasn't any lib on .NET Core that supported drawing, I built my custom logic (still included on the repo and explained at http://build-failed.blogspot.com/2016/08/creating-simple-tileserver-with-net.html).
+
+Since, https://github.com/SixLabors/ImageSharp now includes native drawing support and I'm using it.
+
 
 ### Running
 
-You'll need to install .NET Core 1.0.
+You'll need to install .NET Core 2.1
 
 After clonning this git repo the server is executed as:
 ```sh
+$ cd src
+$ cd CoreTiles.Server
 $ dotnet restore
 $ dotnet run
 ```
